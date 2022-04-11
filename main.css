@@ -1,0 +1,162 @@
+
+body{
+    background-image: url("images/fon.jpg");
+}
+header{
+    display: flex ;
+    width: 100%;
+    height: 100px;
+}
+header div{
+    display: flex;
+    margin: auto;
+    width: 50%;
+    height: auto;
+}
+header span{
+    margin: auto;
+    color: white;
+    font-size: 80px;
+    font-family: 'cyrillicgothnormal' ,sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+* {box-sizing: border-box;}
+form {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+.late input, button {
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+.late input {
+    width: 100%;
+    height: 42px;
+    background: #ffffff;
+    padding-left: 15px;
+}
+.late button {
+    height: 26px;
+    width: 26px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #F15B42;
+    cursor: pointer;
+}
+.late button:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    color: #F9F0DA;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.firm div {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin: 30px 45px;
+    font-family: sans-serif;
+}
+.firm{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+div a{
+    color: white;
+    text-decoration: none;
+}
+div a:hover{
+    color: #F15B42;
+}
+
+img {
+    width: 30%;  !important;
+}
+
+/* General styles */
+.sim-slider {
+    position: relative;
+}
+
+.sim-slider-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+}
+
+.sim-slider-element {
+    width: 100%;
+    transition: opacity 1s ease-in;
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    display: block;
+}
+
+/* Navigation item styles */
+div.sim-slider-arrow-left,
+div.sim-slider-arrow-right {
+    width: 22px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0.6;
+    z-index: 4;
+}
+
+div.sim-slider-arrow-left {
+    left: 10px;
+    top: 40%;
+    display: block;
+    background: url("next.png") no-repeat;
+}
+
+div.sim-slider-arrow-right {
+    right: 10px;
+    top: 40%;
+    display: block;
+    background: url("prev.png") no-repeat;
+}
+
+div.sim-slider-arrow-left:hover {
+    opacity: 1.0;
+}
+
+div.sim-slider-arrow-right:hover {
+    opacity: 1.0;
+}
+
+div.sim-slider-dots {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    text-align: center;
+}
+
+span.sim-dot {
+    width: 10px;
+    height: 10px;
+    margin: 5px 7px;
+    padding: 0;
+    display: inline-block;
+    background-color: #BBB;
+    border-radius: 5px;
+    cursor: pointer;
+}
