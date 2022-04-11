@@ -1,6 +1,7 @@
 
 body{
     background-image: url("images/fon.jpg");
+    background-size: cover;
 }
 header{
     display: flex ;
@@ -81,6 +82,7 @@ div a:hover{
 }
 
 img {
+    border: 2px solid #F15B42;
     width: 30%;  !important;
 }
 
