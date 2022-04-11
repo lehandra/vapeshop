@@ -53,7 +53,8 @@ Sim.prototype.elemPrev = function(num) {
     }
 };
 
-Sim.prototype.elemNext = function(num) {
+Sim.prototype.elemNext = function(num)
+{
     num = num || 1;
 
     let prevElement = this.currentElement;
