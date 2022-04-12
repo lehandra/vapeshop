@@ -19,6 +19,14 @@
         </span>
     </div>
 </header>
+<div class="cart" id="cart" style="right: -100px">
+    <a>
+        <i class="fa-solid fa-cart-shopping fa-3x"></i>
+        <div class="cart-counter" id="cartCounter">
+            1
+        </div>
+    </a>
+</div>
 <div class="d2">
     <form class="late">
         <input type="text" placeholder="Искать здесь...">
@@ -55,15 +63,15 @@
 <div class="hit-text"><span>Хит продаж!</span></div>
 <!-- -->
 <div class="content">
-    <div class="content-item"><a href=""><img src="images/hit1.jpg" alt="screen"><div class="content-text"><h1>Maskking <br>Ледяная кола</h1><span>Одноразовый вейп на 400 затяжек. Яркий вкус самого популярного напитка Кока Колы. Больше вкуса, больше эмоций!</span></div></a> <button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
-    <div class="content-item"><a href=""><img src="images/hit2.png" alt="screen"><div class="content-text"><h1>MASKKING Pro Max <br>Гуава Малина</h1><span>Одноразовый вейп на 1500 затяжек. Это сочный кисло-сладкий и одновременно освежающе-терпкий вкус с доминирующим нежным оттенком садовой ягоды.</span></div></a> <button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
-    <div class="content-item"><a href=""><img src="images/hit3.jpg" alt="screen"><div class="content-text"><h1>Maskking 2.0 Ягодный рай</h1><span>Одноразовый вейп на 600 затяжек. Ягодный Рай - освежающая смесь ягод с яркими намёками на клюкву и синюю малину и холодного ментола. Проведи лето еще ярче!</span></div></a> <button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
-    <div class="content-item"><a href=""><img src="images/hit4.jpeg" alt="screen"><div class="content-text"><h1>HQD Cuvie Plus Виноград</h1><span>Одноразовый вейп на 1200 затяжек. Классический вкус винограда, ставший родным уже тысячи пользователям.</span></div></a> <button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
-    <div class="content-item"><a href=""><img src="images/hit5.jpeg" alt="screen"><div class="content-text"><h1>HQD HIT 1600 Барбарис</h1><span>Одноразовый вейп на 1600 затяжек.Популярный вкус, который так сильно напоминает вкус, знакомый нам с самого детства.</span></div></a> <button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
-    <div class="content-item"><a href=""><img src="images/hit6.jpg" alt="screen"><div class="content-text"><h1>HQD HIT 1600 Глинтвейн</h1><span>Одноразовый вейп на 1600 затяжек. Пряный вкус, который напомнит о теплых зимних вечерах проведенных у камина.</span></div></a> <button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
-    <div class="content-item"><a href=""><img src="images/hit7.jpg" alt="screen"><div class="content-text"><h1>ELF BAR 1500 Ледяной банан</h1><span>Одноразовый вейп на 1500 затяжек. Сливочный вкус спелого банана с освежающей прохладой. Получайте от ароматного пару только лучше забыв о зарядке и заправке девайса.</span></div></a> <button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
-    <div class="content-item"><a href=""><img src="images/hit8.jpg" alt="screen"><div class="content-text"><h1>ELF BAR 1500 Радуга</h1><span>Одноразовый вейп на 1500 затяжек. Невероятно вкусный и сладкий вкус конфеток Skittles, с оттенками кислого лимонада. Получайте от ароматного пара только лучшее, забыв о зарядке и заправке девайса.</span></div></a> <button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
-    <div class="content-item"><a href=""><img src="images/hit9.jpg" alt="screen"><div class="content-text"><h1>ELF BAR 1500 Манго</h1><span>Одноразовый вейп на 1500 затяжек. Вкус спелого тропического манго, с оттенками ананаса и персика. Получайте от ароматного пару только лучше забыв о зарядке и заправке девайса.</span></div></a><button><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit1.jpg" alt="screen"><div class="content-text"><h1>Maskking <br>Ледяная кола</h1><span>Одноразовый вейп на 400 затяжек. Яркий вкус самого популярного напитка Кока Колы. Больше вкуса, больше эмоций!</span></div></a> <button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit2.png" alt="screen"><div class="content-text"><h1>MASKKING Pro Max <br>Гуава Малина</h1><span>Одноразовый вейп на 1500 затяжек. Это сочный кисло-сладкий и одновременно освежающе-терпкий вкус с доминирующим нежным оттенком садовой ягоды.</span></div></a> <button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit3.jpg" alt="screen"><div class="content-text"><h1>Maskking 2.0 Ягодный рай</h1><span>Одноразовый вейп на 600 затяжек. Ягодный Рай - освежающая смесь ягод с яркими намёками на клюкву и синюю малину и холодного ментола. Проведи лето еще ярче!</span></div></a> <button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit4.jpeg" alt="screen"><div class="content-text"><h1>HQD Cuvie Plus Виноград</h1><span>Одноразовый вейп на 1200 затяжек. Классический вкус винограда, ставший родным уже тысячи пользователям.</span></div></a> <button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit5.jpeg" alt="screen"><div class="content-text"><h1>HQD HIT 1600 Барбарис</h1><span>Одноразовый вейп на 1600 затяжек.Популярный вкус, который так сильно напоминает вкус, знакомый нам с самого детства.</span></div></a> <button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit6.jpg" alt="screen"><div class="content-text"><h1>HQD HIT 1600 Глинтвейн</h1><span>Одноразовый вейп на 1600 затяжек. Пряный вкус, который напомнит о теплых зимних вечерах проведенных у камина.</span></div></a> <button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit7.jpg" alt="screen"><div class="content-text"><h1>ELF BAR 1500 Ледяной банан</h1><span>Одноразовый вейп на 1500 затяжек. Сливочный вкус спелого банана с освежающей прохладой. Получайте от ароматного пару только лучше забыв о зарядке и заправке девайса.</span></div></a> <button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit8.jpg" alt="screen"><div class="content-text"><h1>ELF BAR 1500 Радуга</h1><span>Одноразовый вейп на 1500 затяжек. Невероятно вкусный и сладкий вкус конфеток Skittles, с оттенками кислого лимонада. Получайте от ароматного пара только лучшее, забыв о зарядке и заправке девайса.</span></div></a> <button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
+    <div class="content-item"><a href=""><img src="images/hit9.jpg" alt="screen"><div class="content-text"><h1>ELF BAR 1500 Манго</h1><span>Одноразовый вейп на 1500 затяжек. Вкус спелого тропического манго, с оттенками ананаса и персика. Получайте от ароматного пару только лучше забыв о зарядке и заправке девайса.</span></div></a><button onclick="addToCart()"><span>Добавить</span></button><h2 class="price">550руб.</h2></div>
 </div>
 <!--  -->
 
@@ -126,7 +134,7 @@
 
 <script src="https://kit.fontawesome.com/1b72ff84e9.js" crossorigin="anonymous"></script>
 <script src="sim-slider.js"></script>
-<script src="slider.js"></script>
+<script src="cart.js"></script>
 <script>new Sim()</script>
 </body>
 </html>
