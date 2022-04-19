@@ -70,13 +70,9 @@ function removeFromCart(p){
         }
         if (products[i].itemCount < 1){
             delete products[i];
-            const check = JSON.parse(JSON.stringify(products),
-                (key, value) => value === null || value === '' ? undefined : value);
-            localStorage.setItem('products', JSON.stringify(check));
+            products = products.filter(x => x !== undefined);
         }
-        else {
-            localStorage.setItem('products', JSON.stringify(products));
-        }
+        localStorage.setItem('products', JSON.stringify(products));
     }
     document.location.reload(true);
 }
@@ -99,51 +95,51 @@ function generateCartContent(array){ //генерация корзины
     var list = document.createElement('ul');
     for (var i = 0; i < array.length; i++) {
 
-        var item = document.createElement('li');
-        list.appendChild(item);
+            var item = document.createElement('li');
+            list.appendChild(item);
 
-        var divName = document.createElement('div');
-        divName.appendChild(document.createTextNode(array[i].itemName));
-        let att1 = document.createAttribute("class");
-        att1.value = "cartName";
-        divName.setAttributeNode(att1);
-        item.appendChild(divName);
+            var divName = document.createElement('div');
+            divName.appendChild(document.createTextNode(array[i].itemName));
+            let att1 = document.createAttribute("class");
+            att1.value = "cartName";
+            divName.setAttributeNode(att1);
+            item.appendChild(divName);
 
-        var divItemCount = document.createElement('div');
-        divItemCount.appendChild(document.createTextNode('Кол-во: ' + array[i].itemCount));
-        let att2 = document.createAttribute("class");
-        att2.value = "divItemCount";
-        divItemCount.setAttributeNode(att2);
-        item.appendChild(divItemCount);
+            var divItemCount = document.createElement('div');
+            divItemCount.appendChild(document.createTextNode('Кол-во: ' + array[i].itemCount));
+            let att2 = document.createAttribute("class");
+            att2.value = "divItemCount";
+            divItemCount.setAttributeNode(att2);
+            item.appendChild(divItemCount);
 
-        var divItemPrice = document.createElement('div');
-        divItemPrice.appendChild(document.createTextNode('Цена за единицу: ' + array[i].itemPrice));
-        let att3 = document.createAttribute("class");
-        att3.value = "cartItemPrice";
-        divItemPrice.setAttributeNode(att3);
-        item.appendChild(divItemPrice);
+            var divItemPrice = document.createElement('div');
+            divItemPrice.appendChild(document.createTextNode('Цена за единицу: ' + array[i].itemPrice));
+            let att3 = document.createAttribute("class");
+            att3.value = "cartItemPrice";
+            divItemPrice.setAttributeNode(att3);
+            item.appendChild(divItemPrice);
 
-        var divTotalPrice = document.createElement('div');
-        divTotalPrice.appendChild(document.createTextNode('Цена за все: ' + array[i].totalPrice));
-        let att4 = document.createAttribute("class");
-        att4.value = "cartTotalPrice";
-        divTotalPrice.setAttributeNode(att4);
-        item.appendChild(divTotalPrice);
+            var divTotalPrice = document.createElement('div');
+            divTotalPrice.appendChild(document.createTextNode('Цена за все: ' + array[i].totalPrice));
+            let att4 = document.createAttribute("class");
+            att4.value = "cartTotalPrice";
+            divTotalPrice.setAttributeNode(att4);
+            item.appendChild(divTotalPrice);
 
 
-        let btn = document.createElement("button");
-        let u = array[i].id
-        btn.innerHTML = "Убрать";
-        btn.onclick = function () {
-            removeFromCart(u);
-        };
+            let btn = document.createElement("button");
+            let u = array[i].id
+            btn.innerHTML = "Убрать";
+            btn.onclick = function () {
+                removeFromCart(u);
+            };
 
-        var removeItem = document.createElement('div');
-        removeItem.appendChild(btn);
-        let att5 = document.createAttribute("class");
-        att5.value = "removeItem";
-        removeItem.setAttributeNode(att5);
-        item.appendChild(removeItem);
+            var removeItem = document.createElement('div');
+            removeItem.appendChild(btn);
+            let att5 = document.createAttribute("class");
+            att5.value = "removeItem";
+            removeItem.setAttributeNode(att5);
+            item.appendChild(removeItem);
 
     }
     return list;
