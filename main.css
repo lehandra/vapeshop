@@ -2,11 +2,16 @@
 
 html{
     font-family: "Montserrat",sans-serif;
+    min-height: 100vh !important;
 }
 body{
-    background-image: url("images/fon.jpg");
+    position: absolute;
+    background-image: url(images/fon.jpg);
     margin: 0;
-    /*background-size: cover;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
 }
 a{
     color: white;

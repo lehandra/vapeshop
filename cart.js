@@ -75,6 +75,11 @@ function removeFromCart(p){
         localStorage.setItem('products', JSON.stringify(products));
     }
     document.location.reload(true);
+
+    var count = window.localStorage.getItem('count'); //берём старое значение из лс
+    count = --count; //вычитаем -1
+    window.localStorage.setItem('count', count); //отправляем значение обратно в лс
+    document.getElementById("cartCounter").innerHTML = count;
 }
 
 //Фильтр по кнопкам
