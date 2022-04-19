@@ -92,13 +92,10 @@ function displayItems(a){
 function generateCartContent(array){
     var list = document.createElement('ul');
     for(var i = 0; i < array.length; i++) {
-        for(var l = 0; l < db.length; l++) {
             var item = document.createElement('li');
             console.log(array[i])
-            console.log(db[l])
             item.appendChild(document.createTextNode(array[i].id));
             list.appendChild(item);
-        }
     }
     return list;
 }
