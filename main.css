@@ -8,6 +8,10 @@ body{
     margin: 0;
     /*background-size: cover;*/
 }
+a{
+    color: white;
+    text-decoration: none;
+}
 header{
     position: relative;
     display: flex ;
@@ -124,9 +128,13 @@ form {
     justify-content: center;
     text-align: center;
 }
-div a{
+.firm button{
     color: white;
     text-decoration: none;
+    background-color: transparent;
+    font-size: 18px;
+    font-family: "Montserrat",sans-serif;
+    cursor: pointer;
 }
 /*
 div a:hover{
@@ -141,7 +149,7 @@ div a:hover{
     margin: 50px auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 .content-item h2{
     position: absolute;

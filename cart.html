@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <link rel="stylesheet" href="fonts/stylesheet.css" type="text/css" charset="utf-8" />
+    <title>VapeGuild</title>
+</head>
+<body>
+<script src="cart.js"></script>
+<header>
+    <div class="header-text">
+        <div class="header-logo-con">
+            <img class="header-logo" alt="headerLogo" src="images/logo2.png">
+        </div>
+        <span>
+            Vape Guild
+        </span>
+    </div>
+</header>
+
+<div class="hit-text"><span>Ваша корзина</span></div>
+
+<div class="content" id="cartContent">
+
+</div>
+
+<footer class="footer">
+    <div class="footer-gif"></div>
+    <div class="footer-left">
+        <div class="footer-logo-con">
+            <img class="footer-logo" alt="footerLogo" src="images/logo2.png">
+        </div>
+        <div class="footer-soc text-to-change">
+            <a href="#" class="md-primoExplore-theme"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="md-primoExplore-theme"><i class="fa-brands fa-vk"></i></a>
+            <a href="#" class="md-primoExplore-theme"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </div>
+    <div class="footer-right">
+        <div class="footer-in">
+            <div class="footer-in-in text-to-change">
+                <span class="footer-menu-head">График работы</span>
+                <div class="footer-avatud-con">
+                    <div class="footer-avatud">
+                        <div class="text-to-change">
+                            <span>Пн-Пт</span><span>10:00-22:00</span>
+                        </div>
+                        <div class="text-to-change">
+                            <span>Сб-Вс</span><span>10:00-23:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-in-in">
+                <span class="footer-menu-head">Контакты</span>
+                <div class="footer-text text-to-change">
+                    <span>VapeShop, Улица Дачная 11 А, 143404 Красногорск</span>
+                    <span>+7(965)-244-76-56</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-in">
+            <div class="footer-in-in">
+                <span class="footer-menu-head text-to-change">Сотрудники</span>
+                <div class="footer-text text-to-change">
+                    <a href="#" class="md-primoExplore-theme">Владелец</a>
+                    <a href="#" class="md-primoExplore-theme">Продавцы</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-in">
+            <div class="footer-in-in">
+                <span class="footer-menu-head text-to-change">Полезные ссылки</span>
+                <div class="footer-text text-to-change">
+                    <a href="#" class="md-primoExplore-theme">Закон о табачных изделиях</a>
+                    <a href="#" class="md-primoExplore-theme">Закон о защите прав потребителя</a>
+                    <a href="#" class="md-primoExplore-theme">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+
+    let cartItems = [];
+    if(localStorage.getItem('products')){
+        cartItems = JSON.parse(localStorage.getItem('products'));
+    }
+    document.getElementById('cartContent').appendChild(generateCartContent(cartItems));
+</script>
+<script src="https://kit.fontawesome.com/1b72ff84e9.js" crossorigin="anonymous"></script>
+</body>
+</html>
