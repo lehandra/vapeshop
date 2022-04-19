@@ -1,19 +1,3 @@
-let prices = '{' +
-    '"id1":"440",' +
-    '"id2":"500",' +
-    '"id3":"600",' +
-    '"id4":"700",' +
-    '"id5":"400",' +
-    '"id6":"530",' +
-    '"id7":"510",' +
-    '"id8":"540",' +
-    '"id9":"532"' +
-    '}';
-const db = JSON.parse(prices);
-//x = db.window['id1']
-//console.log(x)
-
-
 //при загрузке страницы чекаются значения cart и count. Если они оба больше нуля, то запускается функция cartOn,
 // которая выводит иконку с корзиной на видимую часть экрана. Эти значения
 var cart = window.localStorage.getItem('cartOn'); //значение, показывающее, что должна ли показываться корзина или не.
@@ -39,14 +23,14 @@ function cartOn() {
     window.localStorage.setItem('cartOn', 1);
 }
 
-function addToLocalStorage(a) {
+function addToLocalStorage(a, b, c) {
     ///добавление айтема в корзину///
     let products = []; //создание пустого массива
     if(localStorage.getItem('products')){ // берётся из лс знчение корзины и вставляется в переменную
         products = JSON.parse(localStorage.getItem('products'));
     }
     if (products.length === 0){
-        products.push({'id': a, itemCount: 1, totalPrice: a}); //если длина массива не получила значений (длина = 0), то создаётся значение
+        products.push({'id': a, 'itemCount': 1, 'itemName': b, 'itemPrice': c, 'totalPrice': c}); //если длина массива не получила значений (длина = 0), то создаётся значение
     } else {
         var z = 0; //блок с проверкой, если существует в массиве строка с айди 'а'
         for (let i = 0; i < products.length; i++){
@@ -59,20 +43,42 @@ function addToLocalStorage(a) {
             for (let i = 0; i < products.length; i++) {
                 if (products[i].id === a) {
                     products[i].itemCount = products[i].itemCount + 1;
-                    products[i].totalPrice = db.a * products[i].itemCount;
+                    products[i].totalPrice = c * products[i].itemCount;
                 }
             }
         } else { //если не существует строки с айди, на которое мы нажали (а), то создаётся новая строка в массиве products с нашим значением и количеством 1
-            products.push({'id': a, itemCount: 1, totalPrice: db.a});
+            products.push({'id': a, 'itemCount': 1, 'itemName': b, 'itemPrice': c, 'totalPrice': c});
         }
     }
     localStorage.setItem('products', JSON.stringify(products)); //отправляет новые значения в лс
     ///добавление айтема в корзину///
 }
 
-function addToCart(a) {
-    addToLocalStorage(a);
+function addToCart(a, b, c) {
+    addToLocalStorage(a, b, c);
     cartOn();
+}
+function removeFromCart(p){
+    let products = []; //создание пустого массива
+    if(localStorage.getItem('products')){ // берётся из лс знчение корзины и вставляется в переменную
+        products = JSON.parse(localStorage.getItem('products'));
+    }
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].id === p) {
+            products[i].itemCount = products[i].itemCount - 1;
+            products[i].totalPrice = products[i].itemPrice * products[i].itemCount;
+        }
+        if (products[i].itemCount < 1){
+            delete products[i];
+            const check = JSON.parse(JSON.stringify(products),
+                (key, value) => value === null || value === '' ? undefined : value);
+            localStorage.setItem('products', JSON.stringify(check));
+        }
+        else {
+            localStorage.setItem('products', JSON.stringify(products));
+        }
+    }
+    document.location.reload(true);
 }
 
 //Фильтр по кнопкам
@@ -89,13 +95,56 @@ function displayItems(a){
 }
 
 
-function generateCartContent(array){
+function generateCartContent(array){ //генерация корзины
     var list = document.createElement('ul');
-    for(var i = 0; i < array.length; i++) {
-            var item = document.createElement('li');
-            console.log(array[i])
-            item.appendChild(document.createTextNode(array[i].id));
-            list.appendChild(item);
+    for (var i = 0; i < array.length; i++) {
+
+        var item = document.createElement('li');
+        list.appendChild(item);
+
+        var divName = document.createElement('div');
+        divName.appendChild(document.createTextNode(array[i].itemName));
+        let att1 = document.createAttribute("class");
+        att1.value = "cartName";
+        divName.setAttributeNode(att1);
+        item.appendChild(divName);
+
+        var divItemCount = document.createElement('div');
+        divItemCount.appendChild(document.createTextNode('Кол-во: ' + array[i].itemCount));
+        let att2 = document.createAttribute("class");
+        att2.value = "divItemCount";
+        divItemCount.setAttributeNode(att2);
+        item.appendChild(divItemCount);
+
+        var divItemPrice = document.createElement('div');
+        divItemPrice.appendChild(document.createTextNode('Цена за единицу: ' + array[i].itemPrice));
+        let att3 = document.createAttribute("class");
+        att3.value = "cartItemPrice";
+        divItemPrice.setAttributeNode(att3);
+        item.appendChild(divItemPrice);
+
+        var divTotalPrice = document.createElement('div');
+        divTotalPrice.appendChild(document.createTextNode('Цена за все: ' + array[i].totalPrice));
+        let att4 = document.createAttribute("class");
+        att4.value = "cartTotalPrice";
+        divTotalPrice.setAttributeNode(att4);
+        item.appendChild(divTotalPrice);
+
+
+        let btn = document.createElement("button");
+        let u = array[i].id
+        btn.innerHTML = "Убрать";
+        btn.onclick = function () {
+            removeFromCart(u);
+        };
+
+        var removeItem = document.createElement('div');
+        removeItem.appendChild(btn);
+        let att5 = document.createAttribute("class");
+        att5.value = "removeItem";
+        removeItem.setAttributeNode(att5);
+        item.appendChild(removeItem);
+
     }
     return list;
 }

@@ -421,6 +421,63 @@ span.sim-dot {
     font-size: 52px;
 }
 
+/*Cart*/
+.cartContent{
+    font-family: "Montserrat",sans-serif;
+    font-size: 18px;
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.cartContent ul {
+    width: 100%;
+    color: white;
+    list-style-type: none;
+}
+.cartContent ul li{
+    padding: 25px;
+    margin: 25px;
+    border: 1px solid white;
+    border-radius: 30px;
+    position: relative;
+}
+.cartName {
+
+}
+.divItemCount {
+
+}
+.cartItemPrice {
+
+}
+.cartTotalPrice{
+
+}
+.removeItem {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: 30%;
+    display: flex;
+}
+.removeItem button {
+    width: 118px;
+    height: 48px;
+    font-family: "Montserrat",sans-serif;
+    font-size: 20px;
+    border: 3px solid gray;
+    border-radius: 100px;
+    margin: auto;
+    cursor: pointer;
+}
+.removeItem button:hover {
+    border: 1px solid lightgray;
+}
+
 
 
 ::selection{
