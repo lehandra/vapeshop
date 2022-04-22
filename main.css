@@ -73,7 +73,7 @@ header span{
 
 
 * {box-sizing: border-box;}
-form {
+form.late {
     position: relative;
     width: 80%;
     margin: 0 auto;
@@ -441,6 +441,7 @@ span.sim-dot {
     width: 100%;
     color: white;
     list-style-type: none;
+    padding: 0 30px;
 }
 .cartContent ul li{
     padding: 25px;
@@ -479,9 +480,175 @@ span.sim-dot {
     border-radius: 100px;
     margin: auto;
     cursor: pointer;
+    transition: 0.05s;
 }
 .removeItem button:hover {
     border: 1px solid lightgray;
+}
+.cartEmpty {
+    width: 100%;
+    height: 100%;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+.divBuyButton {
+    padding: 20px 30px;
+    color: black;
+    background-color: white;
+    border: 3px solid gray;
+    border-radius: 40px;
+    font-size: 19px;
+    font-family: "Montserrat",sans-serif;
+    cursor: pointer;
+    transition: 0.05s;
+}
+.divBuyButton:hover {
+    border: 1px solid lightgray;
+    padding: 22px 32px;
+}
+.totalPrice {
+    width: 100%;
+    padding: 0 80px;
+    color: white;
+}
+
+/*Order form*/
+.orderBackground {
+    position: fixed;
+    z-index: 10000;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #1a1a1a7d;
+    backdrop-filter: blur(8px);
+}
+.orderPopUp {
+    color: white;
+    margin: auto;
+    width: 40vw;
+    border: 3px solid #503a3a;
+    border-radius: 30px;
+    background-image: url(images/fon.jpg);
+}
+.orderPopUp ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px 10px 30px;
+}
+.orderPopUp ul li {
+    display: flex;
+    margin-top: 10px;
+    width: 100% !important;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.orderPopUp ul li div {
+    width: calc(100% / 3);
+    text-align: center;
+}
+.listTotalPrice {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80%;
+    margin: auto;
+}
+.orderPopUp li div:first-child {
+    text-align: left;
+    margin-left: 40px;
+}
+.orderPopUp form {
+    display: flex;
+    flex-direction: column;
+}
+.listNames {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.listNames div {
+    margin: 20px;
+}
+.formContent {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto 30px auto;
+}
+.labels {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.labels input {
+    height: 30px;
+    font-size: 18px;
+    font-family: "Montserrat",sans-serif;
+    margin: 6px 0;
+    border-radius: 42px;
+}
+input[type="submit"] {
+    padding: 10px 17px;
+    font-size: 20px;
+    font-family: "Montserrat",sans-serif;
+    border-radius: 30px;
+    border: 3px solid gray;
+    margin: auto;
+}
+
+.close:not(:hover), .close:not(:focus) {
+    opacity: 0.3;
+    transform: rotateZ(90deg);
+    transition-duration: .5s;
+}
+.close:hover, .close:focus {
+    opacity: 1 !important;
+    transform: rotateZ(0deg) scale(1) !important;
+    transition-duration: .3s;
+}
+button.close {
+    height: 36px;
+    width: 36px;
+    padding: 0;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    opacity: 0.3;
+    background-color: transparent;
+    cursor: pointer;
+    box-sizing: content-box;
+    z-index: 50;
+}
+a.close-close {
+    position: relative;
+}
+.close-close:before, .close-close:after {
+    position: absolute;
+    left: -1px;
+    top: -15px;
+    content: ' ';
+    height: 30px;
+    width: 2px;
+    background-color: #ffffff;
+}
+.close-close:before {
+    transform: rotate(45deg) !important;
+    -moz-transform: translate(0, 15px) rotate(45deg) scale(1) !important;
+}
+.close-close:after {
+    transform: rotate(-45deg) !important;
+    -moz-transform: translate(0, 15px) rotate(-45deg) scale(1) !important;
 }
 
 

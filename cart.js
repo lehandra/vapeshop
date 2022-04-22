@@ -111,21 +111,21 @@ function generateCartContent(array){ //генерация корзины
             item.appendChild(divName);
 
             var divItemCount = document.createElement('div');
-            divItemCount.appendChild(document.createTextNode('Кол-во: ' + array[i].itemCount));
+            divItemCount.appendChild(document.createTextNode('Кол-во: ' + array[i].itemCount + ' шт.'));
             let att2 = document.createAttribute("class");
             att2.value = "divItemCount";
             divItemCount.setAttributeNode(att2);
             item.appendChild(divItemCount);
 
             var divItemPrice = document.createElement('div');
-            divItemPrice.appendChild(document.createTextNode('Цена за единицу: ' + array[i].itemPrice));
+            divItemPrice.appendChild(document.createTextNode('Цена за единицу: ' + array[i].itemPrice + ' руб.'));
             let att3 = document.createAttribute("class");
             att3.value = "cartItemPrice";
             divItemPrice.setAttributeNode(att3);
             item.appendChild(divItemPrice);
 
             var divTotalPrice = document.createElement('div');
-            divTotalPrice.appendChild(document.createTextNode('Цена за все: ' + array[i].totalPrice));
+            divTotalPrice.appendChild(document.createTextNode('Цена за все: ' + array[i].totalPrice + ' руб.'));
             let att4 = document.createAttribute("class");
             att4.value = "cartTotalPrice";
             divTotalPrice.setAttributeNode(att4);
@@ -149,10 +149,89 @@ function generateCartContent(array){ //генерация корзины
     }
     return list;
 }
+function getTotalPrice(){
+    let products = []; //создание пустого массива
+    if(localStorage.getItem('products')){ // берётся из лс знчение корзины и вставляется в переменную
+        products = JSON.parse(localStorage.getItem('products'));
+    }
+    var orderPrice = 0;
+    for (let i = 0; i < products.length; i++) {
+        orderPrice = orderPrice + products[i].totalPrice;
+    }
+    return orderPrice;
+}
+function totalPrice(){
+    var totalPrice = document.createElement('div');
+    totalPrice.appendChild(document.createTextNode('Всего: ' + getTotalPrice() + ' руб.'));
+    let att1 = document.createAttribute("class");
+    att1.value = "totalPrice";
+    totalPrice.setAttributeNode(att1);
+    document.getElementById('cartContent').appendChild(totalPrice);
+}
+function makeOrder(a){
+    document.getElementsByClassName('orderBackground')[0].style.display = a;
+}
+function buyButton(){
+    var divBuyButton = document.createElement('button');
+    divBuyButton.appendChild(document.createTextNode('Заказать'));
+    let att1 = document.createAttribute("class");
+    att1.value = "divBuyButton";
+    divBuyButton.setAttributeNode(att1);
+    divBuyButton.onclick = function () {
+        makeOrder('flex');
+    };
+    document.getElementById('cartContent').appendChild(divBuyButton);
+}
 
+function checkEmpty(){
+    var check = window.localStorage.getItem('count');
+    if (check === '0'){
+        var divCartEmpty = document.createElement('div');
+        divCartEmpty.appendChild(document.createTextNode('Корзина пуста'));
+        let att1 = document.createAttribute("class");
+        att1.value = "cartEmpty";
+        divCartEmpty.setAttributeNode(att1);
+        document.getElementById('cartContent').appendChild(divCartEmpty);
+    }
+    else {
+        let cartItems = [];
+        if(localStorage.getItem('products')){
+            cartItems = JSON.parse(localStorage.getItem('products'));
+        }
+        document.getElementById('cartContent').appendChild(generateCartContent(cartItems));
+        totalPrice();
+        buyButton();
+    }
+}
 
+function generateOffer(){
+    let products = []; //создание пустого массива
+    if(localStorage.getItem('products')){ // берётся из лс знчение корзины и вставляется в переменную
+        products = JSON.parse(localStorage.getItem('products'));
+    }
+    let offer = document.getElementById('offer');
+    for (var i = 0; i < products.length; i++) {
 
+        var item = document.createElement('li');
 
+        var divName = document.createElement('div');
+        divName.appendChild(document.createTextNode(products[i].itemName));
+        item.appendChild(divName);
+
+        var divItemCount = document.createElement('div');
+        divItemCount.appendChild(document.createTextNode(products[i].itemCount + ' шт.'));
+        item.appendChild(divItemCount);
+
+        var divItemPrice = document.createElement('div');
+        divItemPrice.appendChild(document.createTextNode(products[i].totalPrice + ' руб.'));
+        item.appendChild(divItemPrice);
+
+        offer.appendChild(item);
+    }
+    let total = getTotalPrice();
+    let itemTotal = document.getElementsByClassName('listTotalPrice')[0];
+    itemTotal.appendChild(document.createTextNode('Всего: ' + total + ' руб.'));
+}
 
 
 
