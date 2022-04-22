@@ -1,15 +1,15 @@
-//при загрузке страницы чекаются значения cart и count. Если они оба больше нуля, то запускается функция cartOn,
-// которая выводит иконку с корзиной на видимую часть экрана. Эти значения
-var cart = window.localStorage.getItem('cartOn'); //значение, показывающее, что должна ли показываться корзина или не.
-var count = window.localStorage.getItem('count'); //значение, показывающее сколько раз нажато на кнопку добавления в корзину.
-document.getElementById("cartCounter").innerHTML = count; //изменение значения в иконке с корзиной
-if (cart > 0 && count > 0) {
-    cartOn();
+function onloadCheck(){
+    let count = window.localStorage.getItem('count'); //значение, показывающее сколько раз нажато на кнопку добавления в корзину.
+    document.getElementById("cartCounter").innerHTML = count; //изменение значения в иконке с корзиной
+    if ( count > 0) {
+        document.getElementById("cartCounter").innerHTML = count;
+        let a = document.getElementById('cart');
+        a.style.right = '35px';
+    }
+    else {
+        window.localStorage.setItem('cartOn', 0);
+    }
 }
-else {
-    window.localStorage.setItem('cartOn', 0);
-}
-
 function cartOn() {
     /// счетчик в корзине ///
     var count = window.localStorage.getItem('count'); //берём старое значение из лс

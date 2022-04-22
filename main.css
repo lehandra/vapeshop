@@ -428,6 +428,31 @@ span.sim-dot {
 }
 
 /*Cart*/
+.backButton a {
+    background-color: white;
+    color: black;
+    font-size: 28px;
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: 3px solid gray;
+    position: relative;
+}
+.backButton a:before {
+    content: '\276E';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+}
+.backButton a:hover a:after {
+    opacity: 1;
+    left: 0;
+}
+.backButton {
+    position: relative;
+    width: 100%;
+}
 .cartContent{
     font-family: "Montserrat",sans-serif;
     font-size: 18px;
