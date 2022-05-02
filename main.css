@@ -50,6 +50,7 @@ header span{
 
 #cart {
     position: fixed;
+    z-index: 10000;
     top: 29px;
     width: 50px;
     height: 50px;
@@ -128,6 +129,7 @@ form.late {
     transition: background-size 0.25s ease-out;
 }
 .firm{
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -191,6 +193,7 @@ div a:hover{
     width: 80%;
     margin: auto;
     padding-bottom: 100px;
+    color: white;
 }
 .content-item button {
     font-family: "Montserrat",sans-serif;
@@ -200,7 +203,7 @@ div a:hover{
     padding: 0 20px;
     border: 2px solid #6a6a6a;
     margin: 15px;
-    cursor: alias;
+    cursor: pointer;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -215,7 +218,6 @@ div a:hover{
     border-radius: 28px;
     transition: 0.15s ease-out;
 }
-
 .sim-slider-element img {
     border: 2px solid #503a3a;
     height: 100%;
@@ -228,7 +230,6 @@ div a:hover{
     flex-direction: column;
     text-align: center;
 }
-
 .sim-slider-list {
     margin: 0;
     padding: 0;
@@ -236,7 +237,6 @@ div a:hover{
     position: relative;
     width: 70%;
 }
-
 .sim-slider-element {
     height: 100%;
     transition: opacity 1s ease-in;
@@ -348,7 +348,7 @@ span.sim-dot {
     background-image: url("images/smoke.gif");
     background-size: 100%;
     opacity: 0.6;
-    /*filter: blur(8px);*/
+    filter: blur(4px);
 }
 .footer-left {
     flex: 1;
@@ -428,31 +428,46 @@ span.sim-dot {
 }
 
 /*Cart*/
-.backButton a {
+.backButton {
+    display: inline-block;
     background-color: white;
-    color: black;
-    font-size: 28px;
-    padding: 5px 20px;
     border-radius: 30px;
     border: 3px solid gray;
-    position: relative;
+    color: black;
+    text-align: center;
+    font-size: 22px;
+    padding: 10px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-left: 15%;
 }
-.backButton a:before {
+
+.backButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.backButton span:before {
     content: '\276E';
     position: absolute;
     opacity: 0;
-    top: 0;
+    top: -2px;
     left: -20px;
     transition: 0.5s;
 }
-.backButton a:hover a:after {
+
+.backButton:hover span {
+    padding-left: 25px;
+}
+
+.backButton:hover span:before {
     opacity: 1;
     left: 0;
 }
-.backButton {
-    position: relative;
-    width: 100%;
-}
+
 .cartContent{
     font-family: "Montserrat",sans-serif;
     font-size: 18px;
@@ -676,9 +691,100 @@ a.close-close {
     -moz-transform: translate(0, 15px) rotate(-45deg) scale(1) !important;
 }
 
-
-
 ::selection{
     color: black;
     background-color: white;
+}
+
+@media only screen and (max-width: 1200px) {
+    .content{
+        flex-direction: column;
+    }
+    .content-container, .content-item {
+        flex-direction: row;
+        display: flex;
+        width: auto;
+    }
+    .content-item img {
+        width: auto;
+        padding: 30px;
+        height: 300px;
+        margin-bottom: 50px;
+    }
+    .content-text {
+        padding-right: 10px;
+    }
+    .firm-btn {
+        flex-direction: row;
+        margin: 15px 24px;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+    }
+    .footer-left {
+        flex-direction: row;
+        margin-top: 30px;
+    }
+    .footer-right {
+        flex-wrap: wrap;
+    }
+    .footer-logo-con {
+        display: none;
+    }
+    .footer-in {
+        margin-top: 30px;
+        margin-left: 40px;
+    }
+    .backButton {
+        margin: auto;
+    }
+    .divBuyButton {
+        margin-top: 20px;
+        padding: 15px 25px;
+    }
+    .orderPopUp {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .content {
+        font-size: 13px;
+    }
+    .content-item:hover img {
+        border-radius: 20%;
+    }
+    .content-item img {
+        width: auto;
+        padding: 30px;
+        height: 200px;
+        margin-bottom: 50px;
+    }
+    div.sim-slider-arrow-right {
+        transform: rotate(180deg) scale(1);
+    }
+    .firm-btn {
+        flex-direction: row;
+        margin: 15px 24px;
+    }
+    .removeItem {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+    }
+    .header-text {
+        display: flex;
+        margin: auto;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        transform: none;
+    }
+    .hit-text {
+        margin-top: 85px;
+        margin-bottom: 30px;
+    }
+    header {
+        height: auto;
+    }
 }
