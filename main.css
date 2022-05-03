@@ -16,6 +16,7 @@ body{
     width: 100%;
     max-width: 100vw;
 }
+
 a{
     color: white;
     text-decoration: none;
@@ -738,6 +739,7 @@ a.close-close {
         margin-top: 30px;
         margin-left: 40px;
         width: auto;
+        height: auto;
     }
     .backButton {
         margin: auto;
@@ -765,6 +767,16 @@ a.close-close {
     }
     .sim-slider-element-fon img {
         width: 75%;
+    }
+    html {
+        overflow: hidden;
+        width: 100%;
+    }
+    body {
+        height: 100%;
+        position: fixed;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 }
 @media only screen and (max-width: 900px) {
